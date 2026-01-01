@@ -50,10 +50,33 @@ namespace Tetris
         public MainWindow()
         {
             InitializeComponent();
+            imageControls = SetupGameCanvas(gameState.GameGrid);
         }
 
 
+        private Image[,] SetupGameCanvas(GameGrid grid)
+        {
+            Image[,] imageControls = new Image[grid.Rows, grid.Columns];
+            int cellSize = 25;
 
+            for (int r = 0; r < grid.Rows; r++)
+            {
+                for (int c = 0; c < grid.Columns; c++)
+                {
+                    Image imageControl = new Image
+                    {
+                        Width = cellSize,
+                        Height = cellSize
+                    };
+
+                    Canvas.SetTop(imageControl, (r - 2) * cellSize);
+                    Canvas.SetLeft(imageControl, c * cellSize);
+                    GameCanvas.Children.Add(imageControl);
+                    imageControls[r, c] = imageControl;
+                }
+            }
+            return imageControls;
+        }
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
 
