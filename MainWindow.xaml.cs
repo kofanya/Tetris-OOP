@@ -99,12 +99,19 @@ namespace Tetris
             {
                 imageControls[p.Row, p.Column].Source = tileImages[block.Id];
             }
-        } 
+        }
+
+        private void DrawNextBlock(BlockQueue blockQueue)
+        {
+            Block next = blockQueue.NextBlock;
+            NextImage.Source = blockImages[next.Id];
+        }
         
         private void Draw(GameState gameState)
         {
             DrawGrid(gameState.GameGrid);
             DrawBlock(gameState.CurrentBlock);
+            DrawNextBlock(gameState.BlockQueue);
         }
 
         private async Task GameLoop()
@@ -149,8 +156,11 @@ namespace Tetris
 
         }
 
-        private void PlayAgain_Click(object sender, RoutedEventArgs e)
+        private async void PlayAgain_Click(object sender, RoutedEventArgs e)
         {
+            gameState = new GameState();
+            GameOverMenu.Visibility = Visibility.Hidden;
+            await GameLoop();
 
         }
 
