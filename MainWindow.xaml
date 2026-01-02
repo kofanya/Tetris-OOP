@@ -24,17 +24,23 @@
         <Grid.Background>
             <ImageBrush ImageSource="Assets/2655.jpg"/>
         </Grid.Background>
-
+        
         <Viewbox Grid.Row="1"
                  Grid.Column="1"
                  Margin="0 20 0 20">
-            <Canvas x:Name="GameCanvas"
-                    Background="Black"
-                    Width="250"
-                    Height="500" 
-                    ClipToBounds="True"
-                    Loaded="GameCanvas_Loaded"/>
+            <Border BorderBrush="#ab9ffc" 
+                        BorderThickness="5">
+                <Canvas x:Name="GameCanvas"
+                         Background="#353536"
+                         Width="250"
+                         Height="500" 
+                         ClipToBounds="True"
+                         Loaded="GameCanvas_Loaded"/>   
+            </Border>
+    
         </Viewbox>
+
+        
         <TextBlock x:Name="ScoreText"
                    Grid.Row="0"
                    Grid.Column="1"
