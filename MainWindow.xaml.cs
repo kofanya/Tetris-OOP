@@ -47,6 +47,8 @@ namespace Tetris
         private readonly int maxDelay = 1000;
         private readonly int minDelay = 75;
         private readonly int delayDecrease = 25;
+        private bool isMusicEnabled = true; 
+
 
         private GameState gameState = new GameState();
 
@@ -56,12 +58,24 @@ namespace Tetris
             BackgroundMusic.Play();
             imageControls = SetupGameCanvas(gameState.GameGrid);
         }
-
-        private void BackgroundMusic_MediaEnded(object sender, RoutedEventArgs e)
+        private void MusicIcon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            BackgroundMusic.Position = TimeSpan.Zero;
-            BackgroundMusic.Play();
+            isMusicEnabled = !isMusicEnabled;
+
+            if (isMusicEnabled)
+            {
+                BackgroundMusic.Play();
+                MusicIcon.Text = "🔊";
+            }
+            else
+            {
+                BackgroundMusic.Pause();
+                MusicIcon.Text = "🔇"; 
+            }
+
+            e.Handled = true;
         }
+
 
         private Image[,] SetupGameCanvas(GameGrid grid)
         {

@@ -139,11 +139,28 @@
             </StackPanel>
 
         </Grid>
+        <TextBlock x:Name="MusicIcon"
+           Grid.Row="0"
+           Grid.Column="2"
+           Text="🔊"
+           Margin="0 0 10 0"
+           FontSize="42"
+           TextAlignment="Right"
+           MouseLeftButtonDown="MusicIcon_MouseLeftButtonDown">
+            <TextBlock.Effect>
+                <DropShadowEffect  
+            ShadowDepth="4"  
+            Direction="330"  
+            Color="Black"  
+            Opacity="0.5"  
+            BlurRadius="4"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        
 
         <MediaElement x:Name="BackgroundMusic"
               Source="music.mp3"
               LoadedBehavior="Manual"
-              MediaEnded="BackgroundMusic_MediaEnded"
               Visibility="Collapsed" />
 
     </Grid>
