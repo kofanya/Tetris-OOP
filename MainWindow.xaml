@@ -112,7 +112,7 @@
                             Direction="330"  
                             Color="Black"  
                             Opacity="0.5"  
-                            BlurRadius="4"/>    
+                            BlurRadius="4"/>
                     </TextBlock.Effect>
                 </TextBlock>
                 <TextBlock x:Name="FinalScoreText"
@@ -137,16 +137,14 @@
 
 
             </StackPanel>
-            
+
         </Grid>
 
-
-
-
-
-
-
-
+        <MediaElement x:Name="BackgroundMusic"
+              Source="music.mp3"
+              LoadedBehavior="Manual"
+              MediaEnded="BackgroundMusic_MediaEnded"
+              Visibility="Collapsed" />
 
     </Grid>
 </Window>

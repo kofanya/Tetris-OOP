@@ -50,13 +50,18 @@ namespace Tetris
 
         private GameState gameState = new GameState();
 
-
         public MainWindow()
         {
             InitializeComponent();
+            BackgroundMusic.Play();
             imageControls = SetupGameCanvas(gameState.GameGrid);
         }
 
+        private void BackgroundMusic_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            BackgroundMusic.Position = TimeSpan.Zero;
+            BackgroundMusic.Play();
+        }
 
         private Image[,] SetupGameCanvas(GameGrid grid)
         {
