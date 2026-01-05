@@ -22,7 +22,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="Assets/2655.jpg"/>
+            <ImageBrush ImageSource="Assets/Background.jpg"/>
         </Grid.Background>
         
         <Viewbox Grid.Row="1"
