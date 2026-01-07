@@ -124,6 +124,7 @@ namespace Tetris
                 GameGrid[p.Row, p.Column] = CurrentBlock.Id;
             }
             Score += GameGrid.ClearFullRows();
+
             if (IsGameOver())
             {
                 GameOver = true;

@@ -72,7 +72,6 @@ namespace Tetris
                 BackgroundMusic.Pause();
                 MusicIcon.Text = "🔇"; 
             }
-
             e.Handled = true;
         }
 
@@ -174,8 +173,17 @@ namespace Tetris
                 Draw(gameState);
             }
 
+            HighScoreManager.SaveHighScore(gameState.Score);
+
+            var topScores = HighScoreManager.GetTop5();
+            var scoreViewModels = topScores
+                .Select((score, index) => new HighScoreViewModel(score, index))
+                .ToList();
+
+
             GameOverMenu.Visibility = Visibility.Visible;
             FinalScoreText.Text = $"Score: {gameState.Score}";
+            HighScoresList.ItemsSource = scoreViewModels; 
         }
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {

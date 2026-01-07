@@ -128,6 +128,35 @@
                             BlurRadius="4"/>
                     </TextBlock.Effect>
                 </TextBlock>
+
+                <TextBlock Text="Top Scores"
+                   FontSize="24"
+                   TextAlignment="Center"
+                   Foreground="Yellow"
+                   Margin="0,0,0, 10">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="4" Direction="330" Color="Black" Opacity="0.5" BlurRadius="4"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+
+                <ListView x:Name="HighScoresList"
+                  Width="250"
+                  Height="200"
+                  Background="Transparent"
+                  BorderBrush="Transparent"
+                  Foreground="White"
+                  FontSize="18"
+                  ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding DisplayText}"
+                   FontSize="18"
+                   Foreground="White"
+                   Margin="0,4" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
                 <Button Content="Play again"
                         Background="Green"
                         Margin="0 20 0 0"
